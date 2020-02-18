@@ -28,9 +28,24 @@ public class UserValidatorTest {
 
     @Test
     public void givenFirstName_WhenNotProper_ShouldReturnFalse() {
-        UserValidator validator= new UserValidator();
+        UserValidator validator = new UserValidator();
         boolean userFirstName=validator.validateFirstName("Ky67h");
         Assert.assertEquals(false,userFirstName);
     }
+
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean userLastName=validator.validateLastName("Bhave");
+        Assert.assertEquals(true,userLastName);
+    }
+
+    @Test
+    public void givenLastName_WhenNotProper_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean userLastName=validator.validateLastName("bhave12");
+        Assert.assertEquals(false,userLastName);
+    }
+
 }
 
