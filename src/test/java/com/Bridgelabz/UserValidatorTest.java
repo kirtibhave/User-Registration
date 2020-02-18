@@ -54,4 +54,16 @@ public class UserValidatorTest {
         Assert.assertEquals(false,userEmail);
 
     }
+
+    @Test
+    public void givenMobileFormat_WhenProper_ShouldReturnTrue() {
+        boolean userMobile=validator.validateMobileFormat("91 9919819801");
+        Assert.assertEquals(true,userMobile);
+    }
+
+    @Test
+    public void givenMobileFormat_WhenNotProper_ShouldReturnFalse(){
+        boolean userMobile=validator.validateMobileFormat("8996572920");
+        Assert.assertEquals(false,userMobile);
+    }
 }
