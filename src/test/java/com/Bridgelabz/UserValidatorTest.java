@@ -42,5 +42,16 @@ public class UserValidatorTest {
         Assert.assertEquals(false,userLastName);
     }
 
-}
+    @Test
+    public void givenEmail_WhenProper_ShouldReturnTrue() {
+        boolean userEmail=validator.validateEmail("abc.xyz@bI.co.in");
+        Assert.assertEquals(true,userEmail);
+    }
 
+    @Test
+    public void givenEmail_WhenNotproper_ShouldReturnFalse(){
+        boolean userEmail=validator.validateEmail("abc@.com.my");
+        Assert.assertEquals(false,userEmail);
+
+    }
+}

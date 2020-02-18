@@ -1,27 +1,23 @@
 package com.Bridgelabz;
 
 public class UserValidator {
-
-    public boolean welcomeMessage(String message) {
-        if (message.contains("User"))
-            return true;
-        else
-            return false;
+    String nameRule = "(^[A-Z]{1}[a-z]{2,})$";
+    String emailRule="^[a-zA-Z]{3,}([+|-|.|_]?[a-zA-Z0-9]+)?[@]{1}[a-zA-Z0-9]+[.]{1}[a-zA-Z]{2,4}([.]{1}[a-zA-Z]+)?$";
+    public boolean welcomeMessage(String message){
+        return message.contains("User");
     }
-
-    public String nameRule = "(^[A-Z]{1}[a-z]{2,})$";
     public boolean validateFirstName(String firstName) {
-        if (firstName.matches(nameRule))
-            return true;
-        else
-            return false;
+        return firstName.matches(nameRule);
     }
 
     public boolean validateLastName(String lastName) {
-        if (lastName.matches(nameRule))
-            return true;
-        else
-            return false;
+        return lastName.matches(nameRule);
+    }
 
+    public boolean validateEmail(String email) {
+        return email.matches(emailRule);
     }
 }
+
+
+
