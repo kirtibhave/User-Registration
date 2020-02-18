@@ -66,4 +66,16 @@ public class UserValidatorTest {
         boolean userMobile=validator.validateMobileFormat("8996572920");
         Assert.assertEquals(false,userMobile);
     }
+
+    @Test
+    public void givenPasswordFormat_WhenProper_ShouldReturnTrue() {
+        boolean userPassword1=validator.validatePasswordMinimumCharacter("asdfghjq");
+        Assert.assertEquals(true,userPassword1);
+    }
+
+    @Test
+    public void givenPasswordFormat_WhenNotProper_ShouldReturnFalse() {
+        boolean userpassword1=validator.validatePasswordMinimumCharacter("dgfds");
+        Assert.assertEquals(false,userpassword1);
+    }
 }
