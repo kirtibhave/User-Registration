@@ -7,20 +7,30 @@ public class UserValidatorTest {
     @Test
     public void welcomeMessage_WhenProper_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.welcomeMessage("Welcome to User Registration Problem");
-        Assert.assertEquals(true, result);
+        boolean message = validator.welcomeMessage("Welcome to User Registration Problem");
+        Assert.assertEquals(true, message);
     }
 
     @Test
     public void welcomeMessage_WhenNotProper_ShouldReturnFalse() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.welcomeMessage("Welcome to Registration Problem");
-        Assert.assertEquals(false, result);
+        boolean message = validator.welcomeMessage("Welcome to Registration Problem");
+        Assert.assertEquals(false,message);
     }
 
+    @Test
+    public void givenFirstName_WhenProper_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean userFirstName= validator.validateFirstName("Kirti");
+        Assert.assertEquals(true,userFirstName);
 
+    }
+
+    @Test
+    public void givenFirstName_WhenNotProper_ShouldReturnFalse() {
+        UserValidator validator= new UserValidator();
+        boolean userFirstName=validator.validateFirstName("Ky67h");
+        Assert.assertEquals(false,userFirstName);
+    }
 }
-
-
-
 
