@@ -70,28 +70,40 @@ public class UserValidatorTest {
 
     @Test
     public void givenPasswordFormat_WhenProper_ShouldReturnTrue() {
-        boolean userPassword1 = validator.validatePasswordMinimumCharacter("asdfghjq");
+        boolean userPassword1 = validator.passwordRule1("asdfghjq");
         Assert.assertEquals(true, userPassword1);
     }
 
     @Test
     public void givenPasswordFormat_WhenNotProper_ShouldReturnFalse() {
-        boolean userpassword1 = validator.validatePasswordMinimumCharacter("dgfds");
+        boolean userpassword1 = validator.passwordRule1("dgfds");
         Assert.assertEquals(false, userpassword1);
     }
 
 
     @Test
     public void givenPasswordFormat_WhenSatisfiesRule2_ShouldReturnTrue() {
-        boolean userPassword2=validator.validatePasswordRule2("asyuJfghj");
+        boolean userPassword2=validator.passwordRule2("asyuJfghj");
         Assert.assertEquals(true,userPassword2);
     }
 
     @Test
     public void givenPasswordFormat_WhenNotSatisfiesRule2_ShouldReturnFalse() {
-        boolean userPassword2 = validator.validatePasswordRule2("asdfgtf");
+        boolean userPassword2 = validator.passwordRule2("asdfgtf");
         Assert.assertEquals(false,userPassword2);
     }
 
+    @Test
+    public void givenPassword_WhenSatisfiesRule3_ShouldReturnTrue() {
+        boolean userPassword3 = validator.passwordRule3("abcdEfgHi123");
+        Assert.assertEquals(true, userPassword3);
+    }
+
+    @Test
+    public void givenPassword_WhenNotSatisfiesRule3_ShouldReturnFalse() {
+        boolean message = validator.passwordRule3("abcdEfgHi");
+        Assert.assertEquals(false, message);
+
+    }
 
 }
