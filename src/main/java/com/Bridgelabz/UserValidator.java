@@ -5,6 +5,8 @@ public class UserValidator {
     String emailRule="^[a-zA-Z]{3,}([+|-|.|_]?[a-zA-Z0-9]+)?[@]{1}[a-zA-Z0-9]+[.]{1}[a-zA-Z]{2,4}([.]{1}[a-zA-Z]+)?$";
     String mobileRule="^[0-9]{2}[ ][0-9]{10}$";
     String passwordMinimumCharacterRule="^[a-zA-Z]{8,}";
+    String passwordUpperCaseRule="^(?=.*[A-Z])[A-Za-z]{8,}$";
+
     public boolean welcomeMessage(String message){
         return message.contains("User");
     }
@@ -26,6 +28,10 @@ public class UserValidator {
 
     public boolean validatePasswordMinimumCharacter(String password) {
         return password.matches(passwordMinimumCharacterRule);
+    }
+
+    public boolean validatePasswordRule2(String password2) {
+        return password2.matches(passwordUpperCaseRule);
     }
 }
 
